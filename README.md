@@ -18,7 +18,7 @@ npm install strapi-plugin-button
 
 ## configuration
 
-add something like this in the `config/plugins.js` file (replace <URL> with the url that should be requested when button is clicked):
+add something like this in the `config/plugins.js` file (replace \<URL\> with the url that should be requested when button is clicked):
 
 ```
 'button': {
