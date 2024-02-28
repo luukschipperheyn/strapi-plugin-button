@@ -1,11 +1,15 @@
 {
-  "name": "button",
+  "name": "strapi-plugin-button",
   "version": "0.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
     "name": "button",
-    "description": "Description of button plugin",
+    "description": "Adds a button that requests a configurable url. Good for triggering static site builds.",
     "kind": "plugin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luukschipperheyn/strapi-plugin-button"
   },
   "dependencies": {
     "@strapi/design-system": "^1.6.3",
@@ -33,11 +37,11 @@
     "styled-components": "^5.2.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Luuk Schipperheijn"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer"
+      "name": "Luuk Schipperheijn"
     }
   ],
   "engines": {
