@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-button",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "This is the description of the plugin.",
   "strapi": {
     "name": "button",
@@ -27,7 +27,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.6",
+    "styled-components": "^5.3.11",
     "typescript": "5.0.4"
   },
   "peerDependencies": {

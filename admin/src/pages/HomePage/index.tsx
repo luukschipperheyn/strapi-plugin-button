@@ -14,14 +14,16 @@ import {
   Button,
   JSONInput,
 } from "@strapi/design-system";
-import axios from "axios";
+import axios from "../../utils/axios-instance";
 
 const HomePage = () => {
   const [config, setConfig] = useState<null | {
     name: string;
-    url: string;
-    method: string;
-    buttonName: string;
+    buttons: {
+      url: string;
+      method: string;
+      label: string;
+    }[];
   }>(null);
   useEffect(() => {
     axios.get("/button/config").then((res: any) => {
@@ -34,31 +36,33 @@ const HomePage = () => {
     <Box background="neutral100">
       <BaseHeaderLayout title={config?.name} />
       <ContentLayout>
-        <div>
-          <Button
-            disabled={loading}
-            onClick={() => {
-              setLoading(true);
-              axios
-                .request({
-                  url: config?.url,
-                  method: config?.method,
-                })
-                .then((res) => {
-                  setResponseData(JSON.stringify(res.data, null, 2));
-                  setLoading(false);
-                })
-                .catch((res) => {
-                  setResponseData(
-                    "error: " + JSON.stringify(res.data, null, 2)
-                  );
-                  setLoading(false);
-                });
-            }}
-          >
-            {config?.buttonName}
-          </Button>
-        </div>
+        {config?.buttons?.map((button, i) => (
+          <div key={`button-${i}`}>
+            <Button
+              disabled={loading}
+              onClick={() => {
+                setLoading(true);
+                axios
+                  .request({
+                    url: button?.url,
+                    method: button?.method,
+                  })
+                  .then((res) => {
+                    setResponseData(JSON.stringify(res.data, null, 2));
+                    setLoading(false);
+                  })
+                  .catch((res) => {
+                    setResponseData(
+                      "error: " + JSON.stringify(res.data, null, 2)
+                    );
+                    setLoading(false);
+                  });
+              }}
+            >
+              {button?.label}
+            </Button>
+          </div>
+        ))}
         <Box margin={8}>
           {responseData && <JSONInput value={responseData} minHeight="300px" />}
         </Box>

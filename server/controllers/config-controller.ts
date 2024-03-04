@@ -8,10 +8,8 @@ export default ({ strapi }: { strapi: Strapi }) => {
     index(ctx) {
       console.log("config controller");
       ctx.body = {
-        url: getConfigForProperty("url"),
-        method: getConfigForProperty("method"),
         name: getConfigForProperty("name"),
-        buttonName: getConfigForProperty("buttonName"),
+        buttons: getConfigForProperty("buttons"),
       };
     },
   };
